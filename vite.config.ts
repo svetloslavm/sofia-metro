@@ -7,6 +7,6 @@ import svgr from "@svgr/rollup";
 export default defineConfig({
   plugins: [tsconfigPaths(), svgr()],
   server: {
-    port: 3000,
+    port: 8000,
   },
 });
