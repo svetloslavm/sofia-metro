@@ -1,27 +1,20 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import {
-  Map,
-  NavigationControl,
-  MapRef,
-  MapEvent,
-  Layer,
-} from "react-map-gl/mapbox";
-import { GeoJsonLayer } from "@deck.gl/layers";
-import { center } from "@turf/turf";
+import { Map, NavigationControl, MapRef, Layer } from "react-map-gl/mapbox";
 import type { PickingInfo } from "@deck.gl/core";
 
-import { DeckGLOverlay, ViewBoxList } from "components";
-import { MetroStation, MetroLine, MapStyle } from "typings";
-import { MetroStatus } from "enums";
-import { COLOR, INITIAL_VIEW_STATE, MAP_STYLES } from "consts";
+import { DeckGLOverlay, MapStyleToggle, Sidebar } from "components";
+import { MapStyle } from "typings";
+import { INITIAL_VIEW_STATE, MAP_STYLES } from "consts";
 import {
   metroEntrancesLayer,
   metroAccessibilityLayer,
   buildings3DLayer,
+  getExistingFeatures,
+  metrLinesLayer,
+  metrStationsLayer,
 } from "utils";
 
 import lines from "assets/geojson/mgt_metro_26_sofpr_20210308.json";
-import stations from "assets/geojson/mgt_metro_spirki_26_sofpr_20210308.json";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./MetroMap.css";
@@ -35,17 +28,6 @@ export const MetroMap = () => {
   const [isPlannedVisible, setIsPlannedVissible] = useState(false);
   const [isAccessibilityVisible, setIsAccessibilityVisible] = useState(false);
   const [areEntrancesVisible, setAreEntrancesVisible] = useState(false);
-
-  const filterExistingFeatures = (data: any) =>
-    data.features
-      .filter(
-        (feature: any) =>
-          feature.properties.layer === MetroStatus.EXISTING ||
-          feature.properties.sastoyanie === MetroStatus.EXISTING
-      )
-      .sort((a: any, b: any) =>
-        (a.properties.stancia ?? "").localeCompare(b.properties.stancia ?? "")
-      );
 
   /////////////////////
   // extract in utils
@@ -74,26 +56,8 @@ export const MetroMap = () => {
   const layers = useMemo(
     () => [
       metroAccessibilityLayer(isAccessibilityVisible),
-      new GeoJsonLayer<MetroLine>({
-        id: "metro_lines",
-        data: isPlannedVisible ? lines : filterExistingFeatures(lines),
-        lineWidthMinPixels: 4,
-        getLineColor: ({ properties }) =>
-          properties.sastoyanie === MetroStatus.EXISTING
-            ? COLOR.RED
-            : COLOR.BLACK,
-        pickable: true,
-      }),
-      new GeoJsonLayer<MetroStation>({
-        id: "metro_stations",
-        data: isPlannedVisible ? stations : filterExistingFeatures(stations),
-        lineWidthMinPixels: 4,
-        getLineColor: ({ properties }) =>
-          properties.layer === MetroStatus.EXISTING ? COLOR.BLUE : COLOR.WHITE,
-        getFillColor: ({ properties }) =>
-          properties.layer === MetroStatus.EXISTING ? COLOR.BLUE : COLOR.WHITE,
-        pickable: true,
-      }),
+      metrLinesLayer(isPlannedVisible),
+      metrStationsLayer(isPlannedVisible),
       metroEntrancesLayer(areEntrancesVisible),
     ],
     [isPlannedVisible, isAccessibilityVisible, areEntrancesVisible]
@@ -213,7 +177,7 @@ export const MetroMap = () => {
   const fitMapToFeatures = useCallback(() => {
     const existingFeatures = {
       type: "FeatureCollection",
-      features: filterExistingFeatures(lines),
+      features: getExistingFeatures(lines),
     };
 
     if (isPlannedVisible) {
@@ -225,17 +189,6 @@ export const MetroMap = () => {
 
   const handleMapLoad = () => {
     fitMapToFeatures();
-  };
-
-  const flyToStation = (feature: any) => {
-    const featureCCenter = center(feature);
-    const [lng, lat] = featureCCenter.geometry.coordinates;
-
-    mapRef.current?.flyTo({
-      zoom: 16.5,
-      center: [lng, lat],
-      essential: true,
-    });
   };
 
   useEffect(() => {
@@ -255,69 +208,22 @@ export const MetroMap = () => {
         <NavigationControl position="bottom-right" />
         <Layer {...buildings3DLayer} />
       </Map>
-      {/*TODO: Extract in separate component MapStyleToggle*/}
-      <div
-        className="viewBoxWrapper"
+      <MapStyleToggle
+        mapStyle={mapStyle}
+        mapStyleOrder={mapStyleOrder}
+        onStyleChange={handleStyleChange}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-      >
-        <ViewBoxList
-          mapStyle={mapStyle}
-          mapStyleOrder={mapStyleOrder}
-          onStyleChange={handleStyleChange}
-        />
-      </div>
-      {/* TODO: Extract in separate component */}
-      <div className="sidebar">
-        {/* TODO: Extract in separate component, use visible */}
-        <div>
-          <input
-            type="checkbox"
-            checked={isPlannedVisible}
-            onChange={togglePlanned}
-          />
-          Planned
-          <br />
-          <input
-            type="checkbox"
-            checked={areEntrancesVisible}
-            onChange={toggleEntrances}
-          />
-          Entrances
-          <br />
-          <input
-            type="checkbox"
-            checked={isAccessibilityVisible}
-            onChange={toggleAccessibility}
-          />
-          Accessibility
-        </div>
-        <h3>Stations</h3>
-        <hr />
-        <ul
-          style={{
-            fontSize: 14,
-            listStyleType: "none",
-            paddingLeft: 10,
-            height: "calc(100vh - 200px)",
-            overflowY: "auto",
-          }}
-        >
-          {(isPlannedVisible
-            ? stations.features
-            : filterExistingFeatures(stations)
-          )?.map((feature) => (
-            <li
-              // TODO: Add styles in css, after extracting in separate component
-              style={{ cursor: "pointer", fontSize: 13, lineHeight: 1.8 }}
-              key={feature.properties.id}
-              onClick={() => flyToStation(feature)}
-            >
-              {feature.properties.stancia ?? feature.properties.id}
-            </li>
-          ))}
-        </ul>
-      </div>
+      />
+      <Sidebar
+        mapRef={mapRef}
+        isPlannedVisible={isPlannedVisible}
+        togglePlanned={togglePlanned}
+        areEntrancesVisible={areEntrancesVisible}
+        toggleEntrances={toggleEntrances}
+        isAccessibilityVisible={isAccessibilityVisible}
+        toggleAccessibility={toggleAccessibility}
+      />
     </div>
   );
 };

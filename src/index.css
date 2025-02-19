@@ -81,19 +81,19 @@ button:focus-visible {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
- ::-webkit-scrollbar-track {
+ /* ::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
-}
+} */
 
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
   background: #555;
-}  
+}  */

@@ -1,3 +1,2 @@
 export * from "./layers";
-// TODO: Remove addBuildingLayer
-export * from "./addBuildingLayer";
+export * from "./getFilteredExistingFeatures";

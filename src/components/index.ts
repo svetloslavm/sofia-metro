@@ -1,4 +1,5 @@
 export * from "./App";
-export * from "./MetroMap";
 export * from "./DeckGLOverlay";
-export * from "./ViewBoxList";
+export * from "./MapStyleToggle";
+export * from "./MetroMap";
+export * from "./Sidebar";
