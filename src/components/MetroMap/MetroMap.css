@@ -1,8 +1,15 @@
+
 .mapContainer {
   position: relative;
-  width: 100%;
+  width: 100% ;
   height: 100%;
 }
+
+.mapContainer .mapboxgl-map {
+  width: calc(100% - 290px) !important;
+  height: 100%;
+  left: 290px;
+ } 
 
 .viewBoxWrapper {
   position: absolute;
@@ -11,7 +18,7 @@
   z-index: 999;
   display: flex;
   gap: 10px;
-  flex-direction: column;  
+  flex-direction: column;
 }
 
 .viewBoxWrapper div.viewBox {
@@ -19,19 +26,19 @@
   color: white;
   padding: 0;
   cursor: pointer;
-  font-size: 12px;  
+  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 80px;
   height: 80px;
-  border-radius: 8px; 
+  border-radius: 8px;
   border: 2px solid transparent;
 }
 
 .viewBoxWrapper div.viewBox:hover {
-  border: 2px solid #646cff !important;  
+  border: 2px solid #646cff !important;
 }
 
 .viewBoxWrapper div.viewBox img {
@@ -49,4 +56,27 @@
   color: white;
   border-radius: 0 0 8px 8px;
   box-sizing: border-box;
+}
+
+.sidebar {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 14px 20px 20px;
+  text-align: left;
+  z-index: 100;
+}
+
+.sidebar h3 {
+  margin-bottom: 0;  
+}
+
+.sidebar hr {  
+  width: 100%;
+  opacity: 0.5;
 }

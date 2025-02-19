@@ -1,15 +1,15 @@
 {
-    "type": "FeatureCollection",
+    "type": "FeatureCollection",    
     "features": [
         {
             "type": "Feature",
             "properties": {
                 "id": 1,
-                "objectid": 11.0,
+                "objectid": 11,
                 "layer": "existing",
                 "shape_area": 1497.237,
                 "shape_len": 229.68408102,
-                "stancia": "??11"
+                "stancia": "Г. М. Димитров"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -45,11 +45,11 @@
             "type": "Feature",
             "properties": {
                 "id": 2,
-                "objectid": 13.0,
+                "objectid": 13,
                 "layer": "existing",
                 "shape_area": 1478.083,
                 "shape_len": 228.912199401,
-                "stancia": "??13"
+                "stancia": "Младост 1"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -85,11 +85,11 @@
             "type": "Feature",
             "properties": {
                 "id": 3,
-                "objectid": 14.0,
+                "objectid": 14,
                 "layer": "existing",
                 "shape_area": 1496.0068,
                 "shape_len": 229.663344271,
-                "stancia": "??14"
+                "stancia": "Александър Малинов"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -125,11 +125,11 @@
             "type": "Feature",
             "properties": {
                 "id": 4,
-                "objectid": 15.0,
+                "objectid": 15,
                 "layer": "existing",
                 "shape_area": 1553.64515,
                 "shape_len": 230.228332699,
-                "stancia": "??15"
+                "stancia": "акад. Ал. Теодоров Балан"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -165,11 +165,11 @@
             "type": "Feature",
             "properties": {
                 "id": 5,
-                "objectid": 16.0,
+                "objectid": 16,
                 "layer": "existing",
                 "shape_area": 1479.28425,
                 "shape_len": 229.62513194,
-                "stancia": "??16"
+                "stancia": "Бизнес Парк София"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -205,11 +205,11 @@
             "type": "Feature",
             "properties": {
                 "id": 6,
-                "objectid": 9.0,
+                "objectid": 9,
                 "layer": "existing",
                 "shape_area": 4644.13665,
                 "shape_len": 367.258254412,
-                "stancia": "??9"
+                "stancia": "Стадион Васил Левски"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -257,11 +257,11 @@
             "type": "Feature",
             "properties": {
                 "id": 7,
-                "objectid": 8.0,
+                "objectid": 8,
                 "layer": "existing",
                 "shape_area": 2889.53944609,
                 "shape_len": 319.269014939,
-                "stancia": "??8"
+                "stancia": "СУ Св. Климент Охридски"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -337,11 +337,11 @@
             "type": "Feature",
             "properties": {
                 "id": 8,
-                "objectid": 3.0,
+                "objectid": 3,
                 "layer": "existing",
                 "shape_area": 3590.87655,
                 "shape_len": 293.704014776,
-                "stancia": "??3"
+                "stancia": "Западен парк"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -377,11 +377,11 @@
             "type": "Feature",
             "properties": {
                 "id": 9,
-                "objectid": 200.0,
+                "objectid": 200,
                 "layer": "existing",
                 "shape_area": 5277.90022031,
                 "shape_len": 452.527027112,
-                "stancia": "??200"
+                "stancia": "Обеля"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -517,11 +517,11 @@
             "type": "Feature",
             "properties": {
                 "id": 10,
-                "objectid": 1.0,
+                "objectid": 1,
                 "layer": "existing",
                 "shape_area": 3591.03105,
                 "shape_len": 293.714175232,
-                "stancia": "??1"
+                "stancia": "Сливница"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -557,11 +557,11 @@
             "type": "Feature",
             "properties": {
                 "id": 11,
-                "objectid": 2.0,
+                "objectid": 2,
                 "layer": "existing",
                 "shape_area": 3590.6231,
                 "shape_len": 293.696545091,
-                "stancia": "??2"
+                "stancia": "Люлин"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -597,11 +597,11 @@
             "type": "Feature",
             "properties": {
                 "id": 12,
-                "objectid": 4.0,
+                "objectid": 4,
                 "layer": "existing",
                 "shape_area": 3590.8122,
                 "shape_len": 293.708029097,
-                "stancia": "??4"
+                "stancia": "Вардар"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -637,11 +637,11 @@
             "type": "Feature",
             "properties": {
                 "id": 13,
-                "objectid": 5.0,
+                "objectid": 5,
                 "layer": "existing",
                 "shape_area": 3591.45095,
                 "shape_len": 293.718221026,
-                "stancia": "??5"
+                "stancia": "Константин Величков"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -677,11 +677,11 @@
             "type": "Feature",
             "properties": {
                 "id": 14,
-                "objectid": 7.0,
+                "objectid": 7,
                 "layer": "existing",
                 "shape_area": 3591.45095,
                 "shape_len": 293.718221026,
-                "stancia": "??7"
+                "stancia": "Сердика 1"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -717,11 +717,11 @@
             "type": "Feature",
             "properties": {
                 "id": 15,
-                "objectid": 10.0,
+                "objectid": 10,
                 "layer": "existing",
                 "shape_area": 3591.2996,
                 "shape_len": 293.713668842,
-                "stancia": "??10"
+                "stancia": "Фр. Жолио Кюри"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -757,11 +757,11 @@
             "type": "Feature",
             "properties": {
                 "id": 16,
-                "objectid": 6.0,
+                "objectid": 6,
                 "layer": "existing",
                 "shape_area": 3590.034,
                 "shape_len": 293.686628637,
-                "stancia": "??6"
+                "stancia": "Опълченска"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -797,11 +797,11 @@
             "type": "Feature",
             "properties": {
                 "id": 17,
-                "objectid": 42.0,
+                "objectid": 42,
                 "layer": "planned",
                 "shape_area": 3590.98755,
                 "shape_len": 293.705347221,
-                "stancia": null
+                "stancia": "бул. Панчо Владигеров"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -837,11 +837,11 @@
             "type": "Feature",
             "properties": {
                 "id": 18,
-                "objectid": 207.0,
+                "objectid": 207,
                 "layer": "existing",
                 "shape_area": 3590.3319,
                 "shape_len": 293.693904991,
-                "stancia": "??207"
+                "stancia": "Лъвов мост"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -877,11 +877,11 @@
             "type": "Feature",
             "properties": {
                 "id": 19,
-                "objectid": 206.0,
+                "objectid": 206,
                 "layer": "existing",
                 "shape_area": 3590.766,
                 "shape_len": 293.699001505,
-                "stancia": "??206"
+                "stancia": "Централна ЖП гара"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -917,11 +917,11 @@
             "type": "Feature",
             "properties": {
                 "id": 20,
-                "objectid": 205.0,
+                "objectid": 205,
                 "layer": "existing",
                 "shape_area": 3590.7192,
                 "shape_len": 293.703711,
-                "stancia": "??205"
+                "stancia": "Княгиния Мария Луиза"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -957,11 +957,11 @@
             "type": "Feature",
             "properties": {
                 "id": 21,
-                "objectid": 204.0,
+                "objectid": 204,
                 "layer": "existing",
                 "shape_area": 3590.68205,
                 "shape_len": 293.698056506,
-                "stancia": "??204"
+                "stancia": "Хан Кубрат"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -997,11 +997,11 @@
             "type": "Feature",
             "properties": {
                 "id": 22,
-                "objectid": 203.0,
+                "objectid": 203,
                 "layer": "existing",
                 "shape_area": 3590.7509,
                 "shape_len": 293.700068022,
-                "stancia": "??203"
+                "stancia": "Надежда"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1037,11 +1037,11 @@
             "type": "Feature",
             "properties": {
                 "id": 23,
-                "objectid": 202.0,
+                "objectid": 202,
                 "layer": "existing",
                 "shape_area": 3590.8933,
                 "shape_len": 293.706549532,
-                "stancia": "??202"
+                "stancia": "Бели Дунав"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1077,11 +1077,11 @@
             "type": "Feature",
             "properties": {
                 "id": 24,
-                "objectid": 201.0,
+                "objectid": 201,
                 "layer": "existing",
                 "shape_area": 3591.17,
                 "shape_len": 293.703025789,
-                "stancia": "??201"
+                "stancia": "Ломско шосе"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1117,11 +1117,11 @@
             "type": "Feature",
             "properties": {
                 "id": 25,
-                "objectid": 208.0,
+                "objectid": 208,
                 "layer": "existing",
                 "shape_area": 3590.87315,
                 "shape_len": 293.708370922,
-                "stancia": "??208"
+                "stancia": "Сердика 2"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1157,11 +1157,11 @@
             "type": "Feature",
             "properties": {
                 "id": 26,
-                "objectid": 209.0,
+                "objectid": 209,
                 "layer": "existing",
                 "shape_area": 3590.976,
                 "shape_len": 293.702075232,
-                "stancia": "??209"
+                "stancia": "НДК - 1"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1197,11 +1197,11 @@
             "type": "Feature",
             "properties": {
                 "id": 27,
-                "objectid": 210.0,
+                "objectid": 210,
                 "layer": "existing",
                 "shape_area": 3591.05305,
                 "shape_len": 293.702009813,
-                "stancia": "??210"
+                "stancia": "Европейски съюз"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1237,11 +1237,11 @@
             "type": "Feature",
             "properties": {
                 "id": 28,
-                "objectid": 211.0,
+                "objectid": 211,
                 "layer": "existing",
                 "shape_area": 3590.70415,
                 "shape_len": 293.699501352,
-                "stancia": "??211"
+                "stancia": "Джеймс Баучер"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1277,11 +1277,11 @@
             "type": "Feature",
             "properties": {
                 "id": 29,
-                "objectid": 212.0,
+                "objectid": 212,
                 "layer": "existing",
                 "shape_area": 3590.5215,
                 "shape_len": 293.695715866,
-                "stancia": "??212"
+                "stancia": "Витоша"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1317,11 +1317,11 @@
             "type": "Feature",
             "properties": {
                 "id": 30,
-                "objectid": 50.0,
+                "objectid": 50,
                 "layer": "planned",
                 "shape_area": 3842.15117686,
                 "shape_len": 306.242990401,
-                "stancia": null
+                "stancia": "Кръстова вада"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1357,11 +1357,10 @@
             "type": "Feature",
             "properties": {
                 "id": 31,
-                "objectid": 51.0,
+                "objectid": 51,
                 "layer": "planned",
                 "shape_area": 3838.76692197,
-                "shape_len": 316.903208011,
-                "stancia": null
+                "shape_len": 316.903208011
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1397,11 +1396,11 @@
             "type": "Feature",
             "properties": {
                 "id": 32,
-                "objectid": 12.0,
+                "objectid": 12,
                 "layer": "existing",
                 "shape_area": 1497.237,
                 "shape_len": 229.68408102,
-                "stancia": "??12"
+                "stancia": "Мусагеница"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1437,11 +1436,11 @@
             "type": "Feature",
             "properties": {
                 "id": 33,
-                "objectid": 18.0,
+                "objectid": 18,
                 "layer": "existing",
                 "shape_area": 2826.34016755,
                 "shape_len": 326.251494546,
-                "stancia": "??18"
+                "stancia": "Младост 3"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1485,11 +1484,11 @@
             "type": "Feature",
             "properties": {
                 "id": 34,
-                "objectid": 19.0,
+                "objectid": 19,
                 "layer": "existing",
                 "shape_area": 2764.73429221,
                 "shape_len": 329.358852571,
-                "stancia": "??19"
+                 "stancia": "Интер Експо Център"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1533,11 +1532,11 @@
             "type": "Feature",
             "properties": {
                 "id": 35,
-                "objectid": 20.0,
+                "objectid": 20,
                 "layer": "existing",
                 "shape_area": 2652.65213545,
                 "shape_len": 319.799704643,
-                "stancia": "??20"
+                "stancia": "Дружба"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1581,11 +1580,11 @@
             "type": "Feature",
             "properties": {
                 "id": 36,
-                "objectid": 21.0,
+                "objectid": 21,
                 "layer": "existing",
                 "shape_area": 3360.19802533,
                 "shape_len": 353.685869865,
-                "stancia": "??21"
+                "stancia": "Искърско шосе"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1637,11 +1636,11 @@
             "type": "Feature",
             "properties": {
                 "id": 37,
-                "objectid": 22.0,
+                "objectid": 22,
                 "layer": "existing",
                 "shape_area": 2989.03988369,
                 "shape_len": 349.061163261,
-                "stancia": "??22"
+                "stancia": "Софийска Света гора"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1685,11 +1684,11 @@
             "type": "Feature",
             "properties": {
                 "id": 38,
-                "objectid": 23.0,
+                "objectid": 23,
                 "layer": "existing",
                 "shape_area": 2989.03988369,
                 "shape_len": 349.061163261,
-                "stancia": "??23"
+                "stancia": "Летище София"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1725,11 +1724,11 @@
             "type": "Feature",
             "properties": {
                 "id": 39,
-                "objectid": 49.0,
+                "objectid": 49,
                 "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia":"Цариградско шосе - УМБАЛ Св. Анна"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1765,11 +1764,11 @@
             "type": "Feature",
             "properties": {
                 "id": 40,
-                "objectid": 48.0,
+                "objectid": 48,
                 "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia":"Арена София - Тех Парк"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1805,11 +1804,11 @@
             "type": "Feature",
             "properties": {
                 "id": 41,
-                "objectid": 47.0,
+                "objectid": 47,
                 "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia":"бул. Шипченски проход"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1845,11 +1844,11 @@
             "type": "Feature",
             "properties": {
                 "id": 42,
-                "objectid": 46.0,
+                "objectid": 46,
                 "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia":"Слатина"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1885,11 +1884,11 @@
             "type": "Feature",
             "properties": {
                 "id": 43,
-                "objectid": 44.0,
+                "objectid": 44,
                 "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia":"Гео Милев"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1925,11 +1924,11 @@
             "type": "Feature",
             "properties": {
                 "id": 44,
-                "objectid": 45.0,
+                "objectid": 45,
                 "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia":"Николай Коперник"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -1965,11 +1964,10 @@
             "type": "Feature",
             "properties": {
                 "id": 45,
-                "objectid": 56.0,
+                "objectid": 56,
                 "layer": "planned",
                 "shape_area": null,
-                "shape_len": null,
-                "stancia": null
+                "shape_len": null
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2005,11 +2003,10 @@
             "type": "Feature",
             "properties": {
                 "id": 46,
-                "objectid": 55.0,
+                "objectid": 55,
                 "layer": "planned",
                 "shape_area": null,
-                "shape_len": null,
-                "stancia": null
+                "shape_len": null
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2045,11 +2042,11 @@
             "type": "Feature",
             "properties": {
                 "id": 47,
-                "objectid": 53.0,
+                "objectid": 53,
                 "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia":"Студентски град"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2085,11 +2082,11 @@
             "type": "Feature",
             "properties": {
                 "id": 48,
-                "objectid": 52.0,
+                "objectid": 52,
                 "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+               "stancia":"Градина" 
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2125,11 +2122,11 @@
             "type": "Feature",
             "properties": {
                 "id": 49,
-                "objectid": 54.0,
+                "objectid": 54,
                 "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia":"бул. Св. Климент Охридски"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2165,11 +2162,10 @@
             "type": "Feature",
             "properties": {
                 "id": 50,
-                "objectid": 58.0,
+                "objectid": 58,
                 "layer": "planned",
                 "shape_area": null,
-                "shape_len": null,
-                "stancia": null
+                "shape_len": null
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2205,11 +2201,10 @@
             "type": "Feature",
             "properties": {
                 "id": 51,
-                "objectid": 57.0,
+                "objectid": 57,
                 "layer": "planned",
                 "shape_area": null,
-                "shape_len": null,
-                "stancia": null
+                "shape_len": null
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2245,11 +2240,11 @@
             "type": "Feature",
             "properties": {
                 "id": 52,
-                "objectid": 319.0,
+                "objectid": 319,
                 "layer": "existing",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "Горна Баня"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2285,11 +2280,11 @@
             "type": "Feature",
             "properties": {
                 "id": 53,
-                "objectid": 318.0,
+                "objectid": 318,
                 "layer": "existing",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "Овча Купел 2"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2325,11 +2320,11 @@
             "type": "Feature",
             "properties": {
                 "id": 54,
-                "objectid": 317.0,
+                "objectid": 317,
                 "layer": "existing",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "Мизия"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2365,11 +2360,11 @@
             "type": "Feature",
             "properties": {
                 "id": 55,
-                "objectid": 315.0,
+                "objectid": 315,
                 "layer": "existing",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "Овча Купел"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2405,11 +2400,11 @@
             "type": "Feature",
             "properties": {
                 "id": 56,
-                "objectid": 314.0,
+                "objectid": 314,
                 "layer": "existing",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "Красно село"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2445,11 +2440,11 @@
             "type": "Feature",
             "properties": {
                 "id": 57,
-                "objectid": 312.0,
+                "objectid": 312,
                 "layer": "existing",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "бул. България"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2485,11 +2480,11 @@
             "type": "Feature",
             "properties": {
                 "id": 58,
-                "objectid": 311.0,
+                "objectid": 311,
                 "layer": "existing",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "Медицински университет"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2525,11 +2520,11 @@
             "type": "Feature",
             "properties": {
                 "id": 59,
-                "objectid": 310.0,
+                "objectid": 310,
                 "layer": "existing",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "НДК - 2"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2565,11 +2560,11 @@
             "type": "Feature",
             "properties": {
                 "id": 60,
-                "objectid": 309.0,
+                "objectid": 309,
                 "layer": "existing",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "Св. Патриарх Евтимий"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2605,11 +2600,11 @@
             "type": "Feature",
             "properties": {
                 "id": 61,
-                "objectid": 308.0,
+                "objectid": 308,
                 "layer": "existing",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "Орлов мост"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2645,11 +2640,11 @@
             "type": "Feature",
             "properties": {
                 "id": 62,
-                "objectid": 307.0,
-                "layer": "existing",
+                "objectid": 307,
+                "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "Военна академия - Г.С.Раковски"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2685,11 +2680,11 @@
             "type": "Feature",
             "properties": {
                 "id": 63,
-                "objectid": 306.0,
+                "objectid": 306,
                 "layer": "existing",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "Театрална"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2725,11 +2720,11 @@
             "type": "Feature",
             "properties": {
                 "id": 64,
-                "objectid": 305.0,
+                "objectid": 305,
                 "layer": "existing",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "Хаджи Димитър"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2765,11 +2760,11 @@
             "type": "Feature",
             "properties": {
                 "id": 65,
-                "objectid": 304.0,
-                "layer": "existing",
+                "objectid": 304,
+                "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "Стадион Георги Аспарухов"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2805,11 +2800,11 @@
             "type": "Feature",
             "properties": {
                 "id": 66,
-                "objectid": 303.0,
-                "layer": "existing",
+                "objectid": 303,
+                "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia":  "Тракия"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2845,11 +2840,11 @@
             "type": "Feature",
             "properties": {
                 "id": 67,
-                "objectid": 302.0,
-                "layer": "existing",
+                "objectid": 302,
+                "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "бул. ген. Владимир Вазов"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2885,11 +2880,11 @@
             "type": "Feature",
             "properties": {
                 "id": 68,
-                "objectid": 301.0,
-                "layer": "existing",
+                "objectid": 301,
+                "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "бул. Ботевградско шосе"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2925,11 +2920,11 @@
             "type": "Feature",
             "properties": {
                 "id": 69,
-                "objectid": 59.0,
+                "objectid": 59,
                 "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "София Парк"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -2965,11 +2960,11 @@
             "type": "Feature",
             "properties": {
                 "id": 70,
-                "objectid": 60.0,
+                "objectid": 60,
                 "layer": "planned",
                 "shape_area": null,
                 "shape_len": null,
-                "stancia": null
+                "stancia": "София Ринг Мол"
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -3005,11 +3000,10 @@
             "type": "Feature",
             "properties": {
                 "id": 71,
-                "objectid": 41.0,
+                "objectid": 41,
                 "layer": "planned",
                 "shape_area": 3590.6231,
-                "shape_len": 293.696545091,
-                "stancia": null
+                "shape_len": 293.696545091
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -3045,11 +3039,10 @@
             "type": "Feature",
             "properties": {
                 "id": 72,
-                "objectid": 42.0,
+                "objectid": 42,
                 "layer": "planned",
                 "shape_area": 3590.6231,
-                "shape_len": 293.696545091,
-                "stancia": null
+                "shape_len": 293.696545091
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -3085,11 +3078,10 @@
             "type": "Feature",
             "properties": {
                 "id": 73,
-                "objectid": 62.0,
+                "objectid": 62,
                 "layer": "planned",
                 "shape_area": null,
-                "shape_len": null,
-                "stancia": null
+                "shape_len": null
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -3125,11 +3117,10 @@
             "type": "Feature",
             "properties": {
                 "id": 74,
-                "objectid": 63.0,
+                "objectid": 63,
                 "layer": "planned",
                 "shape_area": null,
-                "shape_len": null,
-                "stancia": null
+                "shape_len": null
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -3165,11 +3156,10 @@
             "type": "Feature",
             "properties": {
                 "id": 75,
-                "objectid": 61.0,
+                "objectid": 61,
                 "layer": "planned",
                 "shape_area": null,
-                "shape_len": null,
-                "stancia": null
+                "shape_len": null
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -3205,11 +3195,10 @@
             "type": "Feature",
             "properties": {
                 "id": 76,
-                "objectid": 65.0,
+                "objectid": 65,
                 "layer": "planned",
                 "shape_area": 1478.3454,
-                "shape_len": null,
-                "stancia": null
+                "shape_len": null
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -3245,11 +3234,10 @@
             "type": "Feature",
             "properties": {
                 "id": 77,
-                "objectid": 66.0,
+                "objectid": 66,
                 "layer": "planned",
                 "shape_area": 1477.82895,
-                "shape_len": null,
-                "stancia": null
+                "shape_len": null
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -3285,11 +3273,10 @@
             "type": "Feature",
             "properties": {
                 "id": 78,
-                "objectid": 64.0,
+                "objectid": 64,
                 "layer": "planned",
                 "shape_area": 1477.79135,
-                "shape_len": null,
-                "stancia": null
+                "shape_len": null
             },
             "geometry": {
                 "type": "MultiPolygon",

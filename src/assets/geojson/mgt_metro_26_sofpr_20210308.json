@@ -1,4 +1,5 @@
 {
+    "id": "metro_lines",
     "type": "FeatureCollection",
     "features": [
         {
