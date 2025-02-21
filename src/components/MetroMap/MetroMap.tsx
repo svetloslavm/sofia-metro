@@ -5,14 +5,8 @@ import type { PickingInfo } from "@deck.gl/core";
 import { DeckGLOverlay, MapStyleToggle, Sidebar } from "components";
 import { MapStyle } from "typings";
 import { INITIAL_VIEW_STATE, MAP_STYLES } from "consts";
-import {
-  metroEntrancesLayer,
-  metroAccessibilityLayer,
-  buildings3DLayer,
-  getExistingFeatures,
-  metrLinesLayer,
-  metrStationsLayer,
-} from "utils";
+import { getExistingFeatures } from "utils";
+import { useMapLayers } from "hooks";
 
 import lines from "assets/geojson/mgt_metro_26_sofpr_20210308.json";
 
@@ -29,55 +23,35 @@ export const MetroMap = () => {
   const [isAccessibilityVisible, setIsAccessibilityVisible] = useState(false);
   const [areEntrancesVisible, setAreEntrancesVisible] = useState(false);
 
-  /////////////////////
-  // extract in utils
-  // const test = stations.features.map((stationFeature) => {
-  //   const stationName = stationsNames.features.find((stationsNamesFeature) => {
-  //     const stationPoint = point(
-  //       stationsNamesFeature.geometry.coordinates.flat()
-  //     );
-  //     const stationPolygon = polygon(
-  //       stationFeature.geometry.coordinates.flat()
-  //     );
-
-  //     return booleanPointInPolygon(stationPoint, stationPolygon);
-  //   });
-  //   console.log({ stationName });
-
-  //   return {
-  //     ...stationFeature,
-  //     properties: {
-  //       ...stationFeature.properties,
-  //       stancia: stationName?.properties.name,
-  //     },
-  //   };
-  // });
+  const {
+    metroAccessibilityLayer,
+    metroLinesLayer,
+    metroStationsLayer,
+    metroEntrancesLayer,
+    buildings3DLayer,
+  } = useMapLayers(
+    isPlannedVisible,
+    isAccessibilityVisible,
+    areEntrancesVisible
+  );
 
   const layers = useMemo(
     () => [
-      metroAccessibilityLayer(isAccessibilityVisible),
-      metrLinesLayer(isPlannedVisible),
-      metrStationsLayer(isPlannedVisible),
-      metroEntrancesLayer(areEntrancesVisible),
+      metroAccessibilityLayer,
+      metroLinesLayer,
+      metroStationsLayer,
+      metroEntrancesLayer,
     ],
-    [isPlannedVisible, isAccessibilityVisible, areEntrancesVisible]
+    [
+      metroAccessibilityLayer,
+      metroLinesLayer,
+      metroStationsLayer,
+      metroEntrancesLayer,
+    ]
   );
 
   const getTooltip = ({ layer, object }: PickingInfo) => {
     if (!object) return null;
-
-    // TODO: Create tooltips for all layers.
-    //console.log({ layer, object });
-    //switch (layer?.id) {
-    //  case "metro_lines":
-    //    return `Line: ${object.properties.id}`;
-    //  case "metro_stations":
-    //    return `Station: ${object.properties.stancia ?? object.properties.id}`;
-    //  case "metro_accessibility":
-    //    return `Accessibility: ${object.properties.id}`;
-    //  default:
-    //    break;
-    //}
 
     const { id, stancia, sastoyanie, name } = object.properties;
 
@@ -136,8 +110,8 @@ export const MetroMap = () => {
     setAreEntrancesVisible(!areEntrancesVisible);
   }, [areEntrancesVisible]);
 
-  const fitMapToBounds = (data: any) => {
-    const bounds = data.features.reduce(
+  const fitMapToBounds = (features: any) => {
+    const bounds = features.reduce(
       (acc: any, feature: any) => {
         const [minLng, minLat, maxLng, maxLat] = acc;
         const coordinates = feature.geometry.coordinates.flat(Infinity);
@@ -181,9 +155,9 @@ export const MetroMap = () => {
     };
 
     if (isPlannedVisible) {
-      fitMapToBounds(lines);
+      fitMapToBounds(lines.features);
     } else {
-      fitMapToBounds(existingFeatures);
+      fitMapToBounds(existingFeatures.features);
     }
   }, [isPlannedVisible]);
 
