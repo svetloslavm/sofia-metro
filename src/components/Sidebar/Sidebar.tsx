@@ -1,8 +1,8 @@
-import { FC, RefObject } from "react";
+import { FC, RefObject, useMemo } from "react";
 import { MapRef } from "react-map-gl/mapbox";
-import { center } from "@turf/turf";
 
 import { getExistingFeatures } from "utils";
+import { SidebarControls, StationList } from "components";
 
 import stations from "assets/geojson/mgt_metro_spirki_26_sofpr_20210308.json";
 
@@ -27,57 +27,25 @@ export const Sidebar: FC<SidebarProps> = ({
   isAccessibilityVisible,
   toggleAccessibility,
 }) => {
-  const flyToStation = (feature: any) => {
-    const featureCenter = center(feature);
-    const [lng, lat] = featureCenter.geometry.coordinates;
-
-    mapRef.current?.flyTo({
-      zoom: 15,
-      center: [lng, lat],
-      essential: true,
-    });
-  };
+  const stationFeatures = useMemo(
+    () =>
+      isPlannedVisible ? stations.features : getExistingFeatures(stations),
+    [isPlannedVisible]
+  );
 
   return (
     <div className="sidebar">
-      <div>
-        <input
-          type="checkbox"
-          checked={isPlannedVisible}
-          onChange={togglePlanned}
-        />
-        Planned
-        <br />
-        <input
-          type="checkbox"
-          checked={areEntrancesVisible}
-          onChange={toggleEntrances}
-        />
-        Entrances
-        <br />
-        <input
-          type="checkbox"
-          checked={isAccessibilityVisible}
-          onChange={toggleAccessibility}
-        />
-        Accessibility
-      </div>
+      <SidebarControls
+        isPlannedVisible={isPlannedVisible}
+        togglePlanned={togglePlanned}
+        areEntrancesVisible={areEntrancesVisible}
+        toggleEntrances={toggleEntrances}
+        isAccessibilityVisible={isAccessibilityVisible}
+        toggleAccessibility={toggleAccessibility}
+      />
       <h3>Stations</h3>
       <hr />
-      <ul className="sidebar-list">
-        {(isPlannedVisible
-          ? stations.features
-          : getExistingFeatures(stations)
-        )?.map((feature: any) => (
-          <li
-            className="sidebar-item"
-            key={feature.properties.id}
-            onClick={() => flyToStation(feature)}
-          >
-            {feature.properties.stancia ?? feature.properties.id}
-          </li>
-        ))}
-      </ul>
+      <StationList mapRef={mapRef} stationFeatures={stationFeatures} />
     </div>
   );
 };
