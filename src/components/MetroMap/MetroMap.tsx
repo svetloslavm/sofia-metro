@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Map, NavigationControl, MapRef, Layer } from "react-map-gl/mapbox";
-import type { PickingInfo } from "@deck.gl/core";
+import { PickingInfo } from "@deck.gl/core";
 
 import { DeckGLOverlay, MapStyleToggle, Sidebar } from "components";
 import { MapStyle } from "typings";
@@ -50,14 +50,29 @@ export const MetroMap = () => {
     ]
   );
 
-  const getTooltip = ({ layer, object }: PickingInfo) => {
+  const getTooltip = ({ object }: PickingInfo) => {
     if (!object) return null;
 
-    const { id, stancia, sastoyanie, name } = object.properties;
+    let tooltip = "";
+    const { type } = object.geometry;
+    const { stancia, layer, sastoyanie, name, frombreak, tobreak } =
+      object.properties;
 
-    return `# ${id}\n${stancia ? `Station: ${stancia}\n` : ""}Status: ${
-      layer || sastoyanie
-    }\n${name}`;
+    if (type === "MultiPolygon") tooltip += `Type: Metro station\n`;
+    if (type === "MultiLineString") tooltip += `Type: Metro line\n`;
+    if (stancia) tooltip += `Station: ${stancia}\n`;
+    if (layer)
+      tooltip += `Status: ${layer.charAt(0).toUpperCase() + layer.slice(1)}\n`;
+    if (sastoyanie)
+      tooltip += `Status: ${
+        sastoyanie.charAt(0).toUpperCase() + sastoyanie.slice(1)
+      }\n`;
+    if (name) tooltip += `Accessibility: ${frombreak} - ${tobreak} meter\n`;
+
+    return {
+      text: tooltip,
+      className: "deck-tooltip",
+    };
   };
 
   const handleMouseEnter = () => {

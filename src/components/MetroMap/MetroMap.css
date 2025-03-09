@@ -1,4 +1,3 @@
-
 .mapContainer {
   position: relative;
   width: 100% ;
@@ -78,4 +77,15 @@
 .sidebar hr {  
   width: 100%;
   opacity: 0.5;
+}
+
+.deck-tooltip {
+  background-color: #000000cc;
+  color: white;
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  max-width: 200px;
+  pointer-events: none;
+  z-index: 1000;
 }
