@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GeoJsonLayer } from "deck.gl";
+import { ArcLayer, GeoJsonLayer } from "deck.gl";
 import { LayerProps } from "react-map-gl/mapbox";
 
 import { COLOR } from "consts";
@@ -18,6 +18,8 @@ export const useMapLayers = (
   areEntrancesVisible: boolean
 ) => {
   const [hoveredObject, setHoveredObject] =
+    useState<GeoJSON.Feature<GeoJSON.Geometry> | null>(null);
+  const [clickedStation, setClickedStation] =
     useState<GeoJSON.Feature<GeoJSON.Geometry> | null>(null);
 
   const buildings3DLayer: LayerProps = {
@@ -101,6 +103,7 @@ export const useMapLayers = (
     id: "metro_stations",
     data: isPlannedVisible ? stations : getExistingFeatures(stations),
     lineWidthMinPixels: 4,
+    getLineWidth: 4,
     getLineColor: ({ properties }) =>
       properties.layer === MetroStatus.EXISTING
         ? COLOR.LIGHT_YELLOW
@@ -109,6 +112,15 @@ export const useMapLayers = (
       properties.layer === MetroStatus.EXISTING
         ? COLOR.LIGHT_YELLOW
         : COLOR.WHITE,
+    onHover: ({ object }) => {
+      const canvas = document.querySelector("canvas");
+      if (canvas) {
+        canvas.style.cursor = object ? "pointer" : "";
+      }
+    },
+    onClick: ({ object }) => {
+      setClickedStation(object);
+    },
     pickable: true,
   });
 
@@ -123,11 +135,29 @@ export const useMapLayers = (
     visible: areEntrancesVisible,
   });
 
+  const metroConnectionsLayer = clickedStation
+    ? new ArcLayer({
+        id: "metroConnections",
+        data:
+          clickedStation.geometry.connections?.map((target) => ({
+            source: clickedStation.geometry.center,
+            target,
+          })) || [],
+        getSourcePosition: ({ source }) => source,
+        getTargetPosition: ({ target }) => target,
+        getSourceColor: COLOR.YELLOW,
+        getTargetColor: COLOR.LIGHT_YELLOW,
+        getWidth: 5,
+        getHeight: 0.65,
+      })
+    : null;
+
   return {
     buildings3DLayer,
     metroAccessibilityLayer,
     metroLinesLayer,
     metroStationsLayer,
     metroEntrancesLayer,
+    metroConnectionsLayer,
   };
 };

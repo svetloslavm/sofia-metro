@@ -1,4 +1,5 @@
-import { FC } from "react";
+import { FC, RefObject } from "react";
+import { MapRef } from "react-map-gl/mapbox";
 import { center } from "@turf/turf";
 
 import { getExistingFeatures } from "utils";
@@ -8,7 +9,7 @@ import stations from "assets/geojson/mgt_metro_spirki_26_sofpr_20210308.json";
 import "./Sidebar.css";
 
 interface SidebarProps {
-  mapRef: any;
+  mapRef: RefObject<MapRef | null>;
   isPlannedVisible: boolean;
   togglePlanned: () => void;
   areEntrancesVisible: boolean;
@@ -27,11 +28,11 @@ export const Sidebar: FC<SidebarProps> = ({
   toggleAccessibility,
 }) => {
   const flyToStation = (feature: any) => {
-    const featureCCenter = center(feature);
-    const [lng, lat] = featureCCenter.geometry.coordinates;
+    const featureCenter = center(feature);
+    const [lng, lat] = featureCenter.geometry.coordinates;
 
     mapRef.current?.flyTo({
-      zoom: 16.5,
+      zoom: 15,
       center: [lng, lat],
       essential: true,
     });
@@ -67,7 +68,7 @@ export const Sidebar: FC<SidebarProps> = ({
         {(isPlannedVisible
           ? stations.features
           : getExistingFeatures(stations)
-        )?.map((feature) => (
+        )?.map((feature: any) => (
           <li
             className="sidebar-item"
             key={feature.properties.id}

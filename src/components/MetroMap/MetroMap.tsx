@@ -29,6 +29,7 @@ export const MetroMap = () => {
     metroStationsLayer,
     metroEntrancesLayer,
     buildings3DLayer,
+    metroConnectionsLayer,
   } = useMapLayers(
     isPlannedVisible,
     isAccessibilityVisible,
@@ -41,12 +42,14 @@ export const MetroMap = () => {
       metroLinesLayer,
       metroStationsLayer,
       metroEntrancesLayer,
+      metroConnectionsLayer,
     ],
     [
       metroAccessibilityLayer,
       metroLinesLayer,
       metroStationsLayer,
       metroEntrancesLayer,
+      metroConnectionsLayer,
     ]
   );
 
@@ -188,9 +191,9 @@ export const MetroMap = () => {
     <div className="mapContainer">
       <Map
         ref={mapRef}
-        mapStyle={`mapbox://styles/mapbox/${mapStyle}`}
         initialViewState={INITIAL_VIEW_STATE}
-        mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
+        //mapStyle={`mapbox://styles/mapbox/${mapStyle}`}
+        //mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
         onLoad={handleMapLoad}
       >
         <DeckGLOverlay layers={layers} getTooltip={getTooltip} />
