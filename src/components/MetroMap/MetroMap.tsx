@@ -137,11 +137,9 @@ export const MetroMap = () => {
   const fitMapToBounds = useCallback(
     (features: GeoJSON.Feature[]) => {
       const bounds = features.reduce(
-        (acc: any, feature: any) => {
+        (acc: number[], feature: Feature<Geometry, GeoJsonProperties>) => {
           const [minLng, minLat, maxLng, maxLat] = acc;
-          const coordinates = feature.geometry.coordinates.flat(Infinity);
-          const lng = coordinates[0];
-          const lat = coordinates[1];
+          const [lng, lat] = feature.geometry.coordinates.flat(Infinity);
 
           return [
             Math.min(minLng, lng),
@@ -184,7 +182,9 @@ export const MetroMap = () => {
     if (isPlannedVisible) {
       fitMapToBounds(lines.features as Feature<Geometry, GeoJsonProperties>[]);
     } else {
-      fitMapToBounds(existingFeatures.features);
+      fitMapToBounds(
+        existingFeatures.features as Feature<Geometry, GeoJsonProperties>[]
+      );
     }
   }, [isPlannedVisible, fitMapToBounds]);
 
