@@ -73,18 +73,6 @@ export const useMapLayers = (
     onHover: ({ object }) => {
       setHoveredObject(object);
     },
-    // This can be use to extrude the layer with height 100 meters
-    //getElevation: (d) => {
-    //  if (hoveredObject?.properties?.objectid === d.properties.objectid)
-    //    return 100; // Height in meters when hovered
-    //  return 0; // Default height
-    //},
-    //extruded: true,
-    //wireframe: true,
-    //updateTriggers: {
-    //  getFillColor: [hoveredObject],
-    //  getElevation: [hoveredObject],
-    //},
     updateTriggers: {
       getFillColor: [hoveredObject],
     },

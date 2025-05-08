@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Map, NavigationControl, MapRef, Layer } from "react-map-gl/mapbox";
 import { PickingInfo } from "@deck.gl/core";
+import type { Feature, Geometry, GeoJsonProperties } from "geojson";
 
 import { DeckGLOverlay, MapStyleToggle, Sidebar } from "components";
 import { MapStyle } from "typings";
@@ -58,11 +59,16 @@ export const MetroMap = () => {
 
     let tooltip = "";
     const { type } = object.geometry;
-    const { stancia, layer, sastoyanie, name, frombreak, tobreak } =
+    const { stancia, layer, sastoyanie, name, frombreak, tobreak, wheelchair } =
       object.properties;
 
+    if (type === "MultiPoint" && name)
+      tooltip += `Type: Metro entrance\nName: ${name}\n`;
+    if (name && type !== "MultiPoint")
+      tooltip += `Accessibility: ${frombreak} - ${tobreak} meter\n`;
     if (type === "MultiPolygon") tooltip += `Type: Metro station\n`;
     if (type === "MultiLineString") tooltip += `Type: Metro line\n`;
+
     if (stancia) tooltip += `Station: ${stancia}\n`;
     if (layer)
       tooltip += `Status: ${layer.charAt(0).toUpperCase() + layer.slice(1)}\n`;
@@ -70,7 +76,7 @@ export const MetroMap = () => {
       tooltip += `Status: ${
         sastoyanie.charAt(0).toUpperCase() + sastoyanie.slice(1)
       }\n`;
-    if (name) tooltip += `Accessibility: ${frombreak} - ${tobreak} meter\n`;
+    if (wheelchair) tooltip += `Wheelchair: ${wheelchair}\n`;
 
     return {
       text: tooltip,
@@ -128,43 +134,46 @@ export const MetroMap = () => {
     setAreEntrancesVisible(!areEntrancesVisible);
   }, [areEntrancesVisible]);
 
-  const fitMapToBounds = (features: any) => {
-    const bounds = features.reduce(
-      (acc: any, feature: any) => {
-        const [minLng, minLat, maxLng, maxLat] = acc;
-        const coordinates = feature.geometry.coordinates.flat(Infinity);
-        const lng = coordinates[0];
-        const lat = coordinates[1];
+  const fitMapToBounds = useCallback(
+    (features: GeoJSON.Feature[]) => {
+      const bounds = features.reduce(
+        (acc: any, feature: any) => {
+          const [minLng, minLat, maxLng, maxLat] = acc;
+          const coordinates = feature.geometry.coordinates.flat(Infinity);
+          const lng = coordinates[0];
+          const lat = coordinates[1];
 
-        return [
-          Math.min(minLng, lng),
-          Math.min(minLat, lat),
-          Math.max(maxLng, lng),
-          Math.max(maxLat, lat),
-        ];
-      },
-      [Infinity, Infinity, -Infinity, -Infinity]
-    );
-
-    if (mapRef.current) {
-      mapRef.current.fitBounds(
-        [
-          [bounds[0], bounds[1]],
-          [bounds[2], bounds[3]],
-        ],
-        {
-          pitch: mapRef.current.getPitch(),
-          padding: {
-            top: isPlannedVisible ? 200 : 150,
-            right: isPlannedVisible ? 300 : 100,
-            bottom: isPlannedVisible ? 50 : 50,
-            left: isPlannedVisible ? 0 : 100,
-          },
-          duration: 1000,
-        }
+          return [
+            Math.min(minLng, lng),
+            Math.min(minLat, lat),
+            Math.max(maxLng, lng),
+            Math.max(maxLat, lat),
+          ];
+        },
+        [Infinity, Infinity, -Infinity, -Infinity]
       );
-    }
-  };
+
+      if (mapRef.current) {
+        mapRef.current.fitBounds(
+          [
+            [bounds[0], bounds[1]],
+            [bounds[2], bounds[3]],
+          ],
+          {
+            pitch: mapRef.current.getPitch(),
+            padding: {
+              top: isPlannedVisible ? 200 : 150,
+              right: isPlannedVisible ? 300 : 100,
+              bottom: isPlannedVisible ? 50 : 50,
+              left: isPlannedVisible ? 0 : 100,
+            },
+            duration: 1000,
+          }
+        );
+      }
+    },
+    [isPlannedVisible]
+  );
 
   const fitMapToFeatures = useCallback(() => {
     const existingFeatures = {
@@ -173,11 +182,11 @@ export const MetroMap = () => {
     };
 
     if (isPlannedVisible) {
-      fitMapToBounds(lines.features);
+      fitMapToBounds(lines.features as Feature<Geometry, GeoJsonProperties>[]);
     } else {
       fitMapToBounds(existingFeatures.features);
     }
-  }, [isPlannedVisible]);
+  }, [isPlannedVisible, fitMapToBounds]);
 
   const handleMapLoad = () => {
     fitMapToFeatures();
@@ -192,8 +201,8 @@ export const MetroMap = () => {
       <Map
         ref={mapRef}
         initialViewState={INITIAL_VIEW_STATE}
-        //mapStyle={`mapbox://styles/mapbox/${mapStyle}`}
-        //mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
+        // mapStyle={`mapbox://styles/mapbox/${mapStyle}`}
+        // mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
         onLoad={handleMapLoad}
       >
         <DeckGLOverlay layers={layers} getTooltip={getTooltip} />
