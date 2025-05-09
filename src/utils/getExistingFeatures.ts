@@ -1,13 +1,15 @@
 import { MetroStatus } from "enums";
-import { Feature } from "../types/Feature";
+import { MetroLineProperties } from "typings";
 
-export const getExistingFeatures = (data: { features: Feature[] }) =>
+export const getExistingFeatures = (data: {
+  features: MetroLineProperties[];
+}) =>
   data.features
     .filter(
-      (feature: Feature) =>
+      (feature) =>
         feature.properties.layer === MetroStatus.EXISTING ||
         feature.properties.sastoyanie === MetroStatus.EXISTING
     )
-    .sort((a: Feature, b: Feature) =>
+    .sort((a, b) =>
       (a.properties.stancia ?? "").localeCompare(b.properties.stancia ?? "")
     );

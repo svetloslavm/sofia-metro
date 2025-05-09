@@ -1,3 +1,5 @@
 export * from "./MetroLine";
-export * from "./MetroStation";
+export * from "./MetroStationProperties";
 export * from "./MapStyle";
+export * from "./MetroStationGeometry";
+export * from "./MetroLineProperties";

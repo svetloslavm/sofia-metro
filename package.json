@@ -1,11 +1,11 @@
 {
   "name": "sofia-metro",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmitOnError false && vite build",
+    "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "npm run dev"

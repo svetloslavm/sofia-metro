@@ -1,50 +1,45 @@
-# React + TypeScript + Vite
+# Sofia Metro [![Netlify Status](https://api.netlify.com/api/v1/badges/19f729a7-1162-49a9-84b0-e80cf72f23fd/deploy-status)](https://app.netlify.com/sites/sofiametro/deploys)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sofia Metro is a React + TypeScript application built with Vite. It provides a modern and efficient setup for developing web applications with features like HMR (Hot Module Replacement) and ESLint integration.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React + TypeScript**: Leverage the power of React and TypeScript for building scalable and maintainable applications.
+- **Vite**: Fast and modern build tool for web development.
+- **Custom Plugins**: Includes plugins like `vite-tsconfig-paths` and `@svgr/rollup` for enhanced development experience.
+- **Responsive Design**: Styled with CSS to ensure a consistent look across devices.
 
-## Expanding the ESLint configuration
+## Screenshot
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![Screenshot of Face Landmark Detection](./src/assets/screenshot.png)
 
-- Configure the top-level `parserOptions` property like this:
+## Data Source
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+The application use GEOJSON data from [Sofia Plan API](https://sofiaplan.bg/api/), which provides information related to urban planning and development in Sofia.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Getting Started
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. Clone the repository:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   ```bash
+   git clone <repository-url>
+   cd sofia-metro
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:8000`.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

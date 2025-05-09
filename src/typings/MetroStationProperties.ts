@@ -1,6 +1,6 @@
 import { MetroStatus } from "enums";
 
-export interface MetroStation {
+export interface MetroStationProperties {
   id: number;
   objectid: number;
   layer: MetroStatus;

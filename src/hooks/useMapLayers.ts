@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { ArcLayer, GeoJsonLayer } from "deck.gl";
 import { LayerProps } from "react-map-gl/mapbox";
+import { Feature, Geometry, FeatureCollection } from "geojson";
 
 import { COLOR } from "consts";
 import { getExistingFeatures } from "utils";
 import { MetroStatus } from "enums";
-import { MetroLine, MetroStation } from "typings";
+import {
+  MetroLine,
+  MetroStationGeometry,
+  MetroStationProperties,
+} from "typings";
 
 import accessibility from "assets/geojson/metro_400_800_1200m_25_sofpr_20190000.json";
 import lines from "assets/geojson/mgt_metro_26_sofpr_20210308.json";
@@ -17,10 +22,11 @@ export const useMapLayers = (
   isAccessibilityVisible: boolean,
   areEntrancesVisible: boolean
 ) => {
-  const [hoveredObject, setHoveredObject] =
-    useState<GeoJSON.Feature<GeoJSON.Geometry> | null>(null);
+  const [hoveredObject, setHoveredObject] = useState<Feature<Geometry> | null>(
+    null
+  );
   const [clickedStation, setClickedStation] =
-    useState<GeoJSON.Feature<GeoJSON.Geometry> | null>(null);
+    useState<Feature<MetroStationGeometry> | null>(null);
 
   const buildings3DLayer: LayerProps = {
     id: "3d-buildings",
@@ -55,7 +61,7 @@ export const useMapLayers = (
 
   const metroAccessibilityLayer = new GeoJsonLayer({
     id: "metro_accessibility",
-    data: accessibility as GeoJSON.FeatureCollection<GeoJSON.Geometry>,
+    data: accessibility as FeatureCollection<Geometry>,
     lineWidthMinPixels: 1,
     getLineColor: COLOR.BLACK,
     pickable: true,
@@ -80,16 +86,29 @@ export const useMapLayers = (
 
   const metroLinesLayer = new GeoJsonLayer<MetroLine>({
     id: "metro_lines",
-    data: isPlannedVisible ? lines : getExistingFeatures(lines),
+    data: isPlannedVisible
+      ? (lines as FeatureCollection<Geometry>)
+      : ({
+          type: "FeatureCollection",
+          features: getExistingFeatures(lines),
+        } as FeatureCollection<Geometry>),
     lineWidthMinPixels: 4,
     getLineColor: ({ properties }) =>
       properties.sastoyanie === MetroStatus.EXISTING ? COLOR.RED : COLOR.BLACK,
     pickable: true,
   });
 
-  const metroStationsLayer = new GeoJsonLayer<MetroStation>({
+  const metroStationsLayer = new GeoJsonLayer<
+    MetroStationProperties,
+    MetroStationGeometry
+  >({
     id: "metro_stations",
-    data: isPlannedVisible ? stations : getExistingFeatures(stations),
+    data: isPlannedVisible
+      ? (stations as FeatureCollection<Geometry>)
+      : ({
+          type: "FeatureCollection",
+          features: getExistingFeatures(stations) as Feature<Geometry>[],
+        } as FeatureCollection<Geometry>),
     lineWidthMinPixels: 4,
     getLineWidth: 4,
     getLineColor: ({ properties }) =>
@@ -114,7 +133,7 @@ export const useMapLayers = (
 
   const metroEntrancesLayer = new GeoJsonLayer({
     id: "metroEntrances",
-    data: metroEntrances as GeoJSON.FeatureCollection<GeoJSON.Geometry>,
+    data: metroEntrances as FeatureCollection<Geometry>,
     getLineColor: COLOR.BLACK,
     getFillColor: COLOR.RED,
     getPointRadius: 5,
