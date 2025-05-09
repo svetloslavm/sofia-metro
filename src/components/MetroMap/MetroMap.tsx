@@ -201,8 +201,8 @@ export const MetroMap = () => {
       <Map
         ref={mapRef}
         initialViewState={INITIAL_VIEW_STATE}
-        // mapStyle={`mapbox://styles/mapbox/${mapStyle}`}
-        // mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
+        mapStyle={`mapbox://styles/mapbox/${mapStyle}`}
+        mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
         onLoad={handleMapLoad}
       >
         <DeckGLOverlay layers={layers} getTooltip={getTooltip} />
