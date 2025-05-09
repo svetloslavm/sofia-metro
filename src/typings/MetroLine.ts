@@ -1,4 +1,4 @@
-import { MetroStatus } from "typings";
+import { MetroStatus } from "enums";
 
 export interface MetroLine {
   id: number;
