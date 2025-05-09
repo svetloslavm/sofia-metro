@@ -26,19 +26,27 @@ The application use GEOJSON data from [Sofia Plan API](https://sofiaplan.bg/api/
    cd sofia-metro
    ```
 
-2. Install dependencies:
+2. Create a `.env` file in the root directory and add your Mapbox access token:
+
+   ```env
+   VITE_MAPBOX_TOKEN=your_mapbox_access_token
+   ```
+
+   You can obtain your Mapbox access token by following the instructions at [Mapbox Access Tokens](https://docs.mapbox.com/help/getting-started/access-tokens/).
+
+3. Install dependencies:
 
    ```bash
    npm install
    ```
 
-3. Start the development server:
+4. Start the development server:
 
    ```bash
    npm run dev
    ```
 
-4. Open your browser and navigate to `http://localhost:8000`.
+5. Open your browser and navigate to `http://localhost:8000`.
 
 ## License
 
