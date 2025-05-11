@@ -1,52 +1,59 @@
 # Sofia Metro [![Netlify Status](https://api.netlify.com/api/v1/badges/19f729a7-1162-49a9-84b0-e80cf72f23fd/deploy-status)](https://app.netlify.com/sites/sofiametro/deploys)
 
-Sofia Metro is a React + TypeScript application built with Vite. It provides a modern and efficient setup for developing web applications with features like HMR (Hot Module Replacement) and ESLint integration.
+Sofia Metro is a web application designed to visualize and interact with urban planning data for Sofia, Bulgaria. Built with React and TypeScript, it leverages modern tools like Vite for fast development and Mapbox for interactive mapping.
 
-## Features
+## Technologies Used
 
-- **React + TypeScript**: Leverage the power of React and TypeScript for building scalable and maintainable applications.
-- **Vite**: Fast and modern build tool for web development.
-- **Custom Plugins**: Includes plugins like `vite-tsconfig-paths` and `@svgr/rollup` for enhanced development experience.
-- **Responsive Design**: Styled with CSS to ensure a consistent look across devices.
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A strongly typed programming language that builds on JavaScript.
+- **Vite**: A fast development build tool.
+- **Mapbox**: For interactive mapping and geospatial visualization.
+- **Deck.gl**: A WebGL-powered framework for high-performance visualizations of large datasets.
 
 ## Screenshot
 
-![Screenshot of Face Landmark Detection](./src/assets/screenshot.png)
+![Screenshot of Sofia Metro Application](./src/assets/screenshot.png)
 
 ## Data Source
 
-The application use GEOJSON data from [Sofia Plan API](https://sofiaplan.bg/api/), which provides information related to urban planning and development in Sofia.
+The application uses GEOJSON data from the [Sofia Plan API](https://sofiaplan.bg/api/), providing detailed information about urban planning and development in Sofia.
 
 ## Getting Started
 
-1. Clone the repository:
+Follow these steps to set up and run the project locally:
+
+1. **Clone the repository**:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/svetloslavm/sofia-metro.git
    cd sofia-metro
    ```
 
-2. Create a `.env` file in the root directory and add your Mapbox access token:
+2. **Set up environment variables**:
+
+   Create a `.env` file in the root directory and add your Mapbox access token:
 
    ```env
    VITE_MAPBOX_TOKEN=your_mapbox_access_token
    ```
 
-   You can obtain your Mapbox access token by following the instructions at [Mapbox Access Tokens](https://docs.mapbox.com/help/getting-started/access-tokens/).
+   Obtain your Mapbox access token by following the instructions at [Mapbox Access Tokens](https://docs.mapbox.com/help/getting-started/access-tokens/).
 
-3. Install dependencies:
+3. **Install dependencies**:
 
    ```bash
    npm install
    ```
 
-4. Start the development server:
+4. **Start the development server**:
 
    ```bash
    npm run dev
    ```
 
-5. Open your browser and navigate to `http://localhost:8000`.
+5. **Open the application**:
+
+   Navigate to `http://localhost:8000` in your browser.
 
 ## License
 
